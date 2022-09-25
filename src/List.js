@@ -11,7 +11,7 @@ const WrappedSingleListItem = ({
   return (
     <li
       style={{ backgroundColor: isSelected ? 'green' : 'red'}}
-      onClick={onClickHandler(index)}
+      onClick={()=>onClickHandler(index)}
     >
       {text}
     </li>
@@ -49,7 +49,7 @@ const WrappedListComponent = ({
           onClickHandler={() => handleClick(index)}
           text={item.text}
           index={index}
-          isSelected={selectedIndex}
+          isSelected={selectedIndex ? true : false}
         />
       ))}
     </ul>
@@ -64,8 +64,7 @@ WrappedListComponent.propTypes = {
 
 const items = [{text:"John", index:1},
                 {text:"John", index:2},
-                {text:"John", index:3},
-                {text:"John", index:4},]
+              ]
 
 WrappedListComponent.defaultProps = {
   items: items,
